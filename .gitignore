@@ -1,7 +1,8 @@
 node_modules/
 public/js
 
-/target
+/target/public/js/cljs-runtime
+
 /checkouts
 /src/gen
 
