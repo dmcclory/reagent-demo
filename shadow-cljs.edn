@@ -4,7 +4,7 @@
   "src/main"
   "src/test"]
 
- :dev-http {4000 ["public" "target/public"]}
+ :dev-http {4000 ["public" "docs"]}
 
  :dependencies
  [[reagent "2.0.1"]]
@@ -14,6 +14,7 @@
   {:target :browser
    :output-dir "docs/js"
    :devtools {:after-load trialing-netlify-spa.app/run}
-   :build-hooks [(shadow.html/copy-file "public/index.html" "docs/index.html")]
+   :build-hooks [(shadow.html/copy-file "public/index.html" "docs/index.html")
+                 (shadow.html/copy-file "public/styles.css" "docs/styles.css")]
    :modules {:main {:entries [trialing-netlify-spa.app]
                     :init-fn trialing-netlify-spa.app/run}}}}}
