@@ -5,19 +5,19 @@
 
 (defonce root (delay (rdomc/create-root (.getElementById js/document "app"))))
 
+(def click-count (r/atom 0))
+
+(defn counter-component []
+  [:div
+    "The atom " [:code "click-count"] "has value:"
+    @click-count ". "
+    [:input {:type "button" :value "Click me!"
+             :on-click #(swap! click-count inc)}]])
+
 (defn simple-example []
   [:div
     [:h1 "A hello world"]
-    [:ol
-      [:li "foo"]
-      [:li "bar"]
-      [:li "cool!"]
-      [:li "very-cool"]
-      [:li "very-cool part 2"]
-      [:li "very-cool part 3"]
-      [:li "very-cool part 4"]
-      [:li "very-cool part 5"]
-      [:li "baz"]]])
+    (counter-component)])
 
 (defn init []
   "Hello world")
