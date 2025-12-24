@@ -12,8 +12,8 @@
  :builds
  {:app
   {:target :browser
-   :output-dir "target/public/js"
+   :output-dir "docs/js"
    :devtools {:after-load trialing-netlify-spa.app/run}
-   :build-hooks [(shadow.html/copy-file "public/index.html" "target/public/index.html")]
+   :build-hooks [(shadow.html/copy-file "public/index.html" "docs/index.html")]
    :modules {:main {:entries [trialing-netlify-spa.app]
                     :init-fn trialing-netlify-spa.app/run}}}}}
