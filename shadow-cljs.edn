@@ -14,5 +14,6 @@
   {:target :browser
    :output-dir "target/public/js"
    :devtools {:after-load trialing-netlify-spa.app/run}
+   :build-hooks [(shadow.html/copy-file "public/index.html" "target/public/index.html")]
    :modules {:main {:entries [trialing-netlify-spa.app]
                     :init-fn trialing-netlify-spa.app/run}}}}}
